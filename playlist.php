@@ -52,7 +52,7 @@ foreach ($jioChannels as $channel) {
     */
 
     $lang = $languages[$langId] ?? 'Hindi';
-    $playbackUrl = $baseUrl . "live.m3u8?id=" . $id . "&token=" . $SCARLET_WITCH['JITENDRA_UNIVERSE']['token'];
+    $playbackUrl = $baseUrl . "live.php?id=" . $id . "&token=" . $SCARLET_WITCH['JITENDRA_UNIVERSE']['token'];
     printf(
         '#EXTINF:-1 tvg-id="%s" tvg-logo="%s" group-title="%s" tvg-language="%s", %s' . PHP_EOL,
         $id,
