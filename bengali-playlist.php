@@ -66,7 +66,7 @@ foreach ($jioChannels as $channel) {
     $group = ($categories[$catId] ?? 'General') . " (JioTV)";
     $lang = $languages[$langId] ?? 'Hindi';
     if ($lang !== "Bengali") continue;
-    $playbackUrl = $baseUrl . "live.m3u8?id=" . $id . "&token=" . $SCARLET_WITCH['JITENDRA_UNIVERSE']['token'];
+    $playbackUrl = $baseUrl . "live.php?id=" . $id . "&token=" . $SCARLET_WITCH['JITENDRA_UNIVERSE']['token'];
 
     if (!in_array($playbackUrl, $seen)) {
         $seen[] = $playbackUrl;
@@ -159,7 +159,7 @@ foreach ($zeeChannels as $zee) {
     $lang = $zeeLangMap[$langCode] ?? "Hindi";
 
     $rawLink = $zee['link'] ?? '';
-    $playbackUrl = $baseUrl . "live.m3u8?id=" . $rawLink . "&token=" . $SCARLET_WITCH['JITENDRA_UNIVERSE']['token'];
+    $playbackUrl = $baseUrl . "live.php?id=" . $rawLink . "&token=" . $SCARLET_WITCH['JITENDRA_UNIVERSE']['token'];
 
     if (!in_array($playbackUrl, $seen)) {
         $seen[] = $playbackUrl;
