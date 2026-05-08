@@ -148,6 +148,53 @@ if ($iptvContent) {
     }
 }
 
+
+// ----------------------
+// Sony Liv Bengali Playlist
+// ----------------------
+$iptvOrgUrl = "https://raw.githubusercontent.com/tg-aadi/content/refs/heads/main/sonyliv.m3u";
+$iptvContent = fetchContent($iptvOrgUrl);
+
+if ($iptvContent) {
+    $lines = explode("\n", $iptvContent);
+
+    for ($i = 0; $i < count($lines); $i++) {
+        $line = trim($lines[$i]);
+
+        if ($line === "#EXTM3U") continue;
+
+        if (strpos($line, "#EXTINF") === 0) {
+            // Filter only Bengali language channels
+            if (strpos($line, 'tvg-language="Bengali"') === false) {
+                continue;
+            }
+            // Tag group
+            $line = str_replace(
+                'group-title="',
+                'group-title="Bengali (Sony Liv) | ',
+                $line
+            );
+
+            echo $line . PHP_EOL;
+
+            if (isset($lines[$i + 1])) {
+                $url = trim($lines[$i + 1]);
+
+                if (!in_array($url, $seen)) {
+                    $seen[] = $url;
+                    echo $url . PHP_EOL;
+                }
+                $i++;
+            }
+        }
+    }
+}
+
+
+
+
+
+
 // ----------------------
 // Zee Channels
 // ----------------------
