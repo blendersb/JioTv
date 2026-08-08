@@ -113,40 +113,40 @@ foreach ($SCARLET_WITCH['addon_service'] as $addon) {
 // ----------------------
 // IPTV-ORG Bengali Playlist
 // ----------------------
-$iptvOrgUrl = "https://iptv-org.github.io/iptv/languages/ben.m3u";
-$iptvContent = fetchContent($iptvOrgUrl);
+// $iptvOrgUrl = "https://iptv-org.github.io/iptv/languages/ben.m3u";
+// $iptvContent = fetchContent($iptvOrgUrl);
 
-if ($iptvContent) {
-    $lines = explode("\n", $iptvContent);
+// if ($iptvContent) {
+//     $lines = explode("\n", $iptvContent);
 
-    for ($i = 0; $i < count($lines); $i++) {
-        $line = trim($lines[$i]);
+//     for ($i = 0; $i < count($lines); $i++) {
+//         $line = trim($lines[$i]);
 
-        if ($line === "#EXTM3U") continue;
+//         if ($line === "#EXTM3U") continue;
 
-        if (strpos($line, "#EXTINF") === 0) {
+//         if (strpos($line, "#EXTINF") === 0) {
 
-            // Tag group
-            $line = str_replace(
-                'group-title="',
-                'group-title="Bengali (IPTV-ORG) | ',
-                $line
-            );
+//             // Tag group
+//             $line = str_replace(
+//                 'group-title="',
+//                 'group-title="Bengali (IPTV-ORG) | ',
+//                 $line
+//             );
 
-            echo $line . PHP_EOL;
+//             echo $line . PHP_EOL;
 
-            if (isset($lines[$i + 1])) {
-                $url = trim($lines[$i + 1]);
+//             if (isset($lines[$i + 1])) {
+//                 $url = trim($lines[$i + 1]);
 
-                if (!in_array($url, $seen)) {
-                    $seen[] = $url;
-                    echo $url . PHP_EOL;
-                }
-                $i++;
-            }
-        }
-    }
-}
+//                 if (!in_array($url, $seen)) {
+//                     $seen[] = $url;
+//                     echo $url . PHP_EOL;
+//                 }
+//                 $i++;
+//             }
+//         }
+//     }
+// }
 
 
 // ----------------------
