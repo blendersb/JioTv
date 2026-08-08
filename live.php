@@ -54,7 +54,7 @@ if (@strlen($id) <= 4 && is_numeric($id) && $token  === base64_decode(hex2bin("5
             'lbcookie: 1',
         ];
 
-        $DOCTOR_STRANGE = jitendraunatti(base64_decode(hex2bin($SCARLET_WITCH['jiotv_api']["geturl"])), $ROLEX, "POST", $KANG, 0, 0, 0, 0, 0, 0, 0, 0);
+        $DOCTOR_STRANGE = jitendraunatti(base64_decode(hex2bin($SCARLET_WITCH['jiotv_api']["newgeturl"])), $ROLEX, "POST", $KANG, 0, 0, 0, 0, 0, 0, 0, 0);
         $CHRISTINE = json_decode($DOCTOR_STRANGE["JITENDRAUNATTI"]["data"], true);
 
         if (isset($CHRISTINE['code']) && $CHRISTINE['code'] == 200) {
