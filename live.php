@@ -55,11 +55,16 @@ if (@strlen($id) <= 4 && is_numeric($id) && $token  === base64_decode(hex2bin("5
         ];
 
         $DOCTOR_STRANGE = jitendraunatti(base64_decode(hex2bin($SCARLET_WITCH['jiotv_api']["newgeturl"])), $ROLEX, "POST", $KANG, 0, 0, 0, 0, 0, 0, 0, 0);
-        $CHRISTINE = json_decode($DOCTOR_STRANGE["JITENDRAUNATTI"]["data"], true);
+        $updated_json_string = str_replace(
+            "jiotvbpkmob.cdn.jio.com", 
+            "jiotvmblive.cdn.jio.com", 
+            $DOCTOR_STRANGE["JITENDRAUNATTI"]["data"]
+        );
+        $CHRISTINE = json_decode($updated_json_string, true);
 
         if (isset($CHRISTINE['code']) && $CHRISTINE['code'] == 200) {
             // if (!is_dir($cache_file)) mkdir($cache_file, 0777, true);
-            file_put_contents($cache_file, scarlet_witch("encrypt", $DOCTOR_STRANGE["JITENDRAUNATTI"]["data"]));
+            file_put_contents($cache_file, scarlet_witch("encrypt", $updated_json_string));
         }
     }
     /*
